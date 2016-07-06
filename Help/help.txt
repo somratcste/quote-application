@@ -1,0 +1,97 @@
+ls
+
+git config --global user.name "somratcste"
+
+git config --global user.email "somratcste@gmail.com"
+
+git init quote
+
+git status
+
+git add . 
+
+git rm --cached text.text
+
+git commit -m "initial commit"
+
+git commit -am  "initial commit"
+
+git log
+
+git diff
+
+git add resources/views/master.blade.php
+
+git diff --cached
+
+git log --oneline
+
+git commit -a -m "shortcut"
+
+git status -s
+
+
+or create a new repository on the command line
+
+echo "# quote-application" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/somratcste/quote-application.git
+git push -u origin master
+
+
+or push an existing repository from the command line
+
+git remote add origin https://github.com/somratcste/quote-application.git
+git push -u origin master
+git push origin master
+
+
+SSH key generate : 
+ssh-keygen -t rsa -C "somratcste@gmail.com"
+
+
+git branch
+
+git branch "name"
+
+git checkout "name"
+
+git clone "ssh link"
+
+git merge "branch name"
+
+git pull "name" "branch name"
+
+git rebase --continue
+
+git fetch "name"
+
+git merge "name/branch"
+
+git rebase "name/branch"
+
+git commit -a -m "msg"
+
+git tag -a "annotation" -m "msg"
+ex: git tag -a v1.0 -m "release version 1 ready"
+
+git tag
+
+git show 1.0
+
+git pull rebase
+
+git push "name" "tag annonation"
+
+git checkout "commit hash"
+
+git checkout "branch name"
+
+git checkout "tag annonation"
+
+git reset --hard "commit hash"
+
+git revert "commit hash"
+
