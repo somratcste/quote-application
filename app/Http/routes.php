@@ -10,8 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/' , [
-		'uses' => 'HomeController@getHome',
-		'as' => 'home'
+Route::group(['middleware' => ['web']] , function() {
+	Route::get('/' , [
+	'uses' => 'HomeController@getHome',
+	'as' => 'home'
 	]);
+});
+
+
