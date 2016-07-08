@@ -131,16 +131,16 @@ body {
 	text-align: center;
 }
 
-.pagination {
+.pagination1 {
 	font-size: 20px;
 }
 
-.pagination a {
+.pagination1 a {
 	color :black;
 	text-decoration: none;
 }
 
-.pagination a:hover , 
-.pagination a:active {
+.pagination1 a:hover , 
+.pagination1 a:active {
 	color: #ccc;
 }

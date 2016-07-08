@@ -27,9 +27,10 @@ class QuoteController extends Controller
 		$quote = new Quote();
 		$quote->quote = $quoteText;
 		$author->quotes()->save($quote);
+
 		return redirect()->route('home')->with([
-			'success' = 'Quote Saved.'
-			]);
+			'success' => 'Quote Saved.'
+		]);
 	}
 	
 }

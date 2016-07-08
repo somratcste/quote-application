@@ -18,7 +18,7 @@ Route::group(['middleware' => ['web']] , function() {
 	]);
 
 	Route::post('/new' , [
-	'uses' => '	QuoteController@postQuote',
+	'uses' => 'QuoteController@postQuote',
 	'as' => 'create'
 	]);
 });

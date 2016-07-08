@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Quote;
 
 class HomeController extends Controller 
 {
 	public function getHome()
 	{
-		
-		return view('home');
+		$quotes = Quote::all();
+		return view('home', ['quotes' => $quotes]);
 	}
 	
 }
