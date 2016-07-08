@@ -9,7 +9,7 @@ class QuoteController extends Controller
 {
 	public function getIndex()
 	{
-
+	
 	}
 
 	public function postQuote(Request $request)

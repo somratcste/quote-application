@@ -17,7 +17,7 @@
 	<section class="quotes">
 		<h1>Latest Quotes</h1>
 		@for($i=0; $i < count($quotes); $i++)
-			<article class="quote">
+			<article class="quote{{ $i % 3 === 0 ? ' first-in-line' : (($i+1) % 3 === 0 ? ' last-in-line' : '')}}">
 				<div class="delete"><a href="#">X</a></div>
 				{{$quotes[$i]->quote}}
 				<div class="info">Created by <a href="#">{{ $quotes[$i]->author->name }}</a>On {{$quotes[$i]->created_at}}</div>
