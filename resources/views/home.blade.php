@@ -26,14 +26,14 @@
 
 	<section class="edit-quote">
 		<h1>Add a Quote</h1>
-		<form>
+		<form method="post" action="{{ route('create') }}">
 			<div class="input-group">
 				<label for="author">Your Name : </label>
-				<input type="text" name="author" id="author" placeholder="your name">
+				<input type="text" name="author" id="author" placeholder="Your name">
 			</div>
 			<div class="input-group">
 				<label for="quote">Your Quote : </label>
-				<textarea rows="5" type="text" name="quote" id="quote" placeholder="your quote"></textarea>
+				<textarea rows="5" type="text" name="quote" id="quote" placeholder="Your quote"></textarea>
 			</div>
 			<button type="button" class="btn btn-primary">Submti Quote</button>
 			<input type="hidden" name="_token" value="{{Session::token()}}">

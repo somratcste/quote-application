@@ -11,9 +11,15 @@
 |
 */
 Route::group(['middleware' => ['web']] , function() {
+
 	Route::get('/' , [
 	'uses' => 'HomeController@getHome',
 	'as' => 'home'
+	]);
+
+	Route::post('/new' , [
+	'uses' => '	QuoteController@postQuote',
+	'as' => 'create'
 	]);
 });
 
