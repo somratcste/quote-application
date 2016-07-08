@@ -4,7 +4,7 @@
 	Trending Quotes
 @endsection
 @section('content')	
-	{{-- @if(count($errors) > 0)
+	@if(count($errors) > 0)
 		<div>
 			<ul class="alert alert-danger">
 				@foreach ($errors->all() as $error)
@@ -12,7 +12,13 @@
 				@endforeach
 			</ul>
 		</div>
-	@endif --}}
+	@endif
+
+	@if(Session::has('success'))
+		<div class="alert alert-success">
+			{{Session::get('success')}}
+		</div>
+	@endif
 	
 	<section class="quotes">
 		<h1>Latest Quotes</h1>
