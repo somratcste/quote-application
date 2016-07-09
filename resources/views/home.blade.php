@@ -4,6 +4,11 @@
 	Trending Quotes
 @endsection
 @section('content')	
+	@if(!empty(Request::Segment(1)))
+		<section class="filter-bar">
+			A filter has been set ! <a href="{{ route('home') }}">Show All Quotes</a>
+		</section>
+	@endif
 	@if(count($errors) > 0)
 		<div>
 			<ul class="alert alert-danger">
@@ -26,7 +31,7 @@
 			<article class="quote{{ $i % 3 === 0 ? ' first-in-line' : (($i+1) % 3 === 0 ? ' last-in-line' : '')}}">
 				<div class="delete"><a href="{{ route('delete' , ['quote_id' => $quotes[$i]->id ]) }}">X</a></div>
 				{{$quotes[$i]->quote}}
-				<div class="info">Created by <a href="#">{{ $quotes[$i]->author_id }}</a> On {{$quotes[$i]->created_at}}</div>
+				<div class="info">Created by <a href="#{{-- {{ route('home', ['author' => $quotes[$i]->author->name ] ) }} --}}">{{ $quotes[$i]->author_id }}</a> On {{$quotes[$i]->created_at}}</div>
 			</article>
 		@endfor
 		<div class="pagination1">
