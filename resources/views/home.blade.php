@@ -31,7 +31,7 @@
 			<article class="quote{{ $i % 3 === 0 ? ' first-in-line' : (($i+1) % 3 === 0 ? ' last-in-line' : '')}}">
 				<div class="delete"><a href="{{ route('delete' , ['quote_id' => $quotes[$i]->id ]) }}">X</a></div>
 				{{$quotes[$i]->quote}}
-				<div class="info">Created by <a href="#{{-- {{ route('home', ['author' => $quotes[$i]->author->name ] ) }} --}}">{{ $quotes[$i]->name }}</a> On {{$quotes[$i]->created_at}}</div>
+				<div class="info">Created by <a href="{{ route('home', ['author' => $quotes[$i]->name] ) }}">{{ $quotes[$i]->name }}</a> On {{$quotes[$i]->created_at}}</div>
 			</article>
 		@endfor
 		<div class="pagination1">
