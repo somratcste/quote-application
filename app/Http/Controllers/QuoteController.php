@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Author;
 use App\Quote;
 use Illuminate\Http\Request;
+use DB;
 
 class QuoteController extends Controller 
 {
@@ -40,15 +41,17 @@ class QuoteController extends Controller
 	public function getDeleteQuote($quote_id)
 	{
 		$quote = Quote::find($quote_id);
-		//$author_deleted = false;
+		$author_id = $quote->author_id;
+		$total_quote = DB::table('quotes')->where('author_id' , $author_id)->count();
+		$author_deleted = false;
 		
-		// if(count($quote->author->quotes) === 1)
-		// {
-		// 	$quote->author->delete();
-		// 	$author_deleted = true;
-		// }
+		if($total_quote === 1)
+		{
+			$auth_deleted = DB::table('authors')->where('id' , $author_id)->delete();
+			$author_deleted = true;
+		}
 		$quote->delete();
-		$msg = 'Quote Deleted' ;
+		$msg = $author_deleted ? 'Quote And Author Deleted !' : 'Quote Deleted !' ;
 		return redirect()->route('home')->with([
 			'success' => $msg 
 		]);
