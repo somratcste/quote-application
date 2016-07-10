@@ -11,14 +11,18 @@ class HomeController extends Controller
 	{
 		if(!is_null($author))
 		{
-			$quote_author = Author::where('name' , $author)->first();
-			$quote_author = $quote_author->id;
-			if($quote_author)
-			{
-				$quotes = Quote::where('author_id' , '=' , $quote_author)
-						->join('authors' , 'quotes.author_id' , '=' , 'authors.id')
-						->paginate(6);
-			}
+			// $quote_author = Author::where('name' , $author)->first();
+			// $quote_author = $quote_author->id;
+			// if($quote_author)
+			// {
+			// 	$quotes = Quote::where('author_id' , '=' , $quote_author)
+			// 			->join('authors' , 'quotes.author_id' , '=' , 'authors.id')
+			// 			->paginate(6);
+			// }
+			$quotes = DB::table('authors')
+					->join('quotes' , 'quotes.author_id' , '=' , 'authors.id')
+					->where('authors.name' , $author)
+					->paginate(6);
 		} else {
 			$quotes = DB::table('quotes')
 					->join('authors' , 'quotes.author_id' , '=' , 'authors.id')
