@@ -10,4 +10,5 @@ class Author extends Model
     {
     	return $this->hasMany('App\Quote');
     }
+    
 }
