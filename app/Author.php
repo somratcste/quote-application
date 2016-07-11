@@ -8,6 +8,6 @@ class Author extends Model
 {
     public function quotes()
     {
-    	return $this->hasMany('App\Author');
+    	return $this->hasMany('App\Quote');
     }
 }

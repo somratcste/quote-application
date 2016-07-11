@@ -41,13 +41,11 @@ class QuoteController extends Controller
 	public function getDeleteQuote($quote_id)
 	{
 		$quote = Quote::find($quote_id);
-		$author_id = $quote->author_id;
-		$total_quote = DB::table('quotes')->where('author_id' , $author_id)->count();
 		$author_deleted = false;
-		
-		if($total_quote === 1)
+
+		if(count($quote->author->quotes) ===1)
 		{
-			$auth_deleted = DB::table('authors')->where('id' , $author_id)->delete();
+			$quote->author->delete();
 			$author_deleted = true;
 		}
 		$quote->delete();

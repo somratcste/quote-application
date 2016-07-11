@@ -8,6 +8,6 @@ class Quote extends Model
 {
     public function author()
     {
-    	return $this->belongsTo('App\Quote');
+    	return $this->belongsTo('App\Author');
     }
 }
