@@ -19,7 +19,8 @@ class QuoteController extends Controller
 	{
 		$this->validate($request , [
 			'author' => 'required|max:60|alpha',
-			'quote'	 => 'required|max:500'
+			'quote'	 => 'required|max:500',
+			'email'	 => 'required|email'
 		]);
 		$authorText = ucfirst($request['author']);
 		$quoteText 	= $request['quote'];
@@ -29,13 +30,14 @@ class QuoteController extends Controller
 		{
 			$author = new Author();
 			$author->name = $authorText;
+			$author->email = $request['email'];
 			$author->save();
 		}
 		$quote = new Quote();
 		$quote->quote = $quoteText;
 		$author->quotes()->save($quote);
 
-		Event::fire(new QuoteCreated($author));
+		Event::fire(new QuoteCreated($author->name));
 
 		return redirect()->route('home')->with([
 			'success' => 'Quote Saved.'
