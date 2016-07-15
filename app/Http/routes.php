@@ -47,6 +47,11 @@ Route::group(['middleware' => ['web']] , function() {
 		'as' => 'admin.dashboard'
 	]);
 
+	Route::get('/admin/logout' , [
+		'uses' => 'AdminController@getLogout',
+		'as' => 'admin.logout'
+	]);
+
 
 });
 

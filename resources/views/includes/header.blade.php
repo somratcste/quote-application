@@ -15,6 +15,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="{{ route('admin.login') }}">Admin</a></li>
+        @if(Auth::check())
+        	<li><a href="{{ route('admin.logout') }}">Logout</a></li>
+        @endif
       </ul>
     </div>
   </div>
