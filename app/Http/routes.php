@@ -36,6 +36,18 @@ Route::group(['middleware' => ['web']] , function() {
 		'uses' => 'AdminController@getLogin',
 		'as' => 'admin.login'
 	]);
+
+	Route::post('/admin/login' , [
+		'uses' => 'AdminController@postLogin',
+		'as' => 'admin.login'
+	]);
+
+	Route::get('/admin/dashboard' , [
+		'uses' => 'AdminController@getDashboard',
+		'as' => 'admin.dashboard'
+	]);
+
+
 });
 
 

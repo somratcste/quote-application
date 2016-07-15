@@ -1,6 +1,20 @@
 @extends('layouts.master')
 @section('content')
-<form method="post" action="{{ route('create') }}">
+@if(count($errors) > 0)
+	<div>
+		<ul class="alert alert-danger">
+			@foreach ($errors->all() as $error)
+				{{$error}}
+			@endforeach
+		</ul>
+	</div>
+@endif
+@if(Session::has('fail'))
+	<div class="alert alert-danger">
+		{{Session::get('fail')}}
+	</div>
+@endif
+<form method="post" action="{{ route('admin.login') }}">
 	<div class="input-group">
 		<label for="name">Your Name : </label>
 		<input type="text" name="name" id="name" placeholder="Your name">
