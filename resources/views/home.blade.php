@@ -52,7 +52,7 @@
 				<input type="text" name="author" id="author" placeholder="Your name">
 			</div>
 			<div class="input-group">
-				<label for="author">Your E-Mail : </label>
+				<label for="email">Your E-Mail : </label>
 				<input type="email" name="email" id="email" placeholder="Your E-Mail">
 			</div>
 			<div class="input-group">
