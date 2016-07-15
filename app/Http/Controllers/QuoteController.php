@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Author;
 use App\Quote;
+use App\AuthorLog;
 use Illuminate\Http\Request;
 use DB;
 use App\Events\QuoteCreated;
@@ -59,6 +60,15 @@ class QuoteController extends Controller
 		return redirect()->route('home')->with([
 			'success' => $msg 
 		]);
+	}
+
+	public function getMailCallback($author_name)
+	{
+		$author_log = new AuthorLog();
+		$author_log->author = $author_name;
+		$author_log->save();
+		
+		return view('email.callback' , ['name' => $author_name]);
 	}
 	
 }
