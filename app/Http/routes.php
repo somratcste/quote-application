@@ -42,11 +42,17 @@ Route::group(['middleware' => ['web']] , function() {
 		'as' => 'admin.login'
 	]);
 
-	Route::get('/admin/dashboard' , [
+	Route::group(['middleware' => ['auth']] , function() {
+
+		Route::get('/admin/dashboard' , [
 		'uses' => 'AdminController@getDashboard',
-		'middleware' => 'auth',
 		'as' => 'admin.dashboard'
-	]);
+		]);
+
+		Route::get('/admin/quotes' , function(){
+			return view('admin.quotes');
+		});
+	});
 
 	Route::get('/admin/logout' , [
 		'uses' => 'AdminController@getLogout',
