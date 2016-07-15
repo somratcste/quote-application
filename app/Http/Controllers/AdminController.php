@@ -33,7 +33,7 @@ class AdminController extends Controller
 
 		if(!Auth::attempt(['name' => $request['name'] , 'password' => $request['password']]))
 		{
-			return redirect()->back(['fail' => 'Could not be login']);
+			return redirect('admin/login')->with('fail' , 'Could not be login');
 		}
 		return redirect()->route('admin.dashboard');
 	}

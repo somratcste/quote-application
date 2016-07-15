@@ -9,9 +9,9 @@
 		</ul>
 	</div>
 @endif
-@if(Session::has('fail'))
+@if(session('fail'))
 	<div class="alert alert-danger">
-		{{Session::get('fail')}}
+		{{session('fail')}}
 	</div>
 @endif
 <form method="post" action="{{ route('admin.login') }}">
